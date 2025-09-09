@@ -20,8 +20,8 @@ def load_data():
         return df
     elif use_sample:
         try:
-            df = pd.read_csv("auto_sales_sample.csv")
-            st.session_state["source_name"] = "auto_sales_sample.csv"
+            df = pd.read_csv("day3/auto_sales_sample.csv")
+            st.session_state["source_name"] = "day3/auto_sales_sample.csv"
             return df
         except Exception as e:
             st.error(f"Couldn't load auto_sales_sample.csv: {e}")
@@ -151,7 +151,7 @@ def to_csv_bytes(df):
 st.download_button(
     "⬇️ Download cleaned CSV",
     data=to_csv_bytes(df_fixed),
-    file_name="cleaned_auto_sales.csv",
+    file_name="day3/cleaned_auto_sales.csv",
     mime="text/csv",
     use_container_width=True
 )
@@ -200,7 +200,7 @@ if "FastSale" in df_fixed.columns:
     st.download_button(
         "⬇️ Download scored CSV (with FastSale_Prob)",
         data=to_csv_bytes(df_scored),
-        file_name="scored_auto_sales.csv",
+        file_name="day3/scored_auto_sales.csv",
         mime="text/csv",
         use_container_width=True
     )
